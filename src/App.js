@@ -1,13 +1,15 @@
 import './App.css';
 import React from 'react';
-import TodoList from './TodoList';
+import TodoList from './components/TodoList';
+import Tabs from './components/Tabs';
 
 function App() {
 
   return (
 <body>
     <div className="App">
-      <TodoList/>
+      <Tabs/>
+      
     </div>
 </body>
   );

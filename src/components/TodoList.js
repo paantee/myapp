@@ -15,6 +15,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import format from 'date-fns/format';
+import './App.css';
 
 export default function TodoList() {
 
@@ -23,10 +24,10 @@ export default function TodoList() {
   const [todos, setTodos] = useState('');
   const [open, setOpen] = useState(false);
  
-  const columns = [  
-    { field: "description", sortable: true, filter: true },  
+  const columns = [   
     { field: "date", sortable: true, filter: true,
-        valueFormatter: params => format(new Date(params.value), "dd.MM.yyyy") },  
+        valueFormatter: params => format(new Date(params.value), "dd.MM.yyyy") },
+    { field: "description", sortable: true, filter: true },  
     { field: "priority", sortable: true, filter: true,
     cellStyle: params => params.value === "High" ? {color: 'red'} : {color: 'black'} }
   ]
@@ -85,7 +86,7 @@ const deleteTodo = () => {
       </Stack>
       <div className="ag-theme-material"style={{height: '700px', width: '70%', margin: 'auto'}} >
 
-        <AgGridReact
+        <AgGridReact className='grid'
         animateRows={true}
         ref={gridRef}
         onGridReady={params => gridRef.current = params.api}
